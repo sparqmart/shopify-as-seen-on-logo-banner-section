@@ -1,0 +1,101 @@
+{% schema %}
+{
+  "name": "As Seen On",
+  "settings": [
+    {
+      "type": "text",
+      "id": "as_seen_on",
+      "label": "As Seen on Text",
+      "default": "As Seen on",
+      "info": "Enter the text that will be shown above the logo carousel."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image",
+          "info": "Upload the logo images here."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Logo URL",
+          "info": "Enter URL where users can click to read/see the feature."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "info": "Enter alt text for logo image."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "As Seen On",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.as-seen-on-container {
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+.as-seen-on-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+.as-seen-on-logos {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+.as-seen-on-logos a {
+  display: inline-flex;
+  width: 80%;
+  margin-right: 30px;
+}
+.as-seen-on-logos img {
+  height: 60px;
+  width: auto;
+  filter: grayscale(100%);
+  transition: .3s ease-in-out filter;
+  object-fit: contain;
+}
+.as-seen-on-logos a:hover img {
+  filter: grayscale(0%);
+}
+@keyframes marquee {
+  0% {transform: translateX(0px);}
+  100% {transform: translateX(-100%);}
+}
+{% endstylesheet %}
+
+<div class="as-seen-on-container">
+  {% if section.settings.as_seen_on %}
+    <p class="as-seen-on-title">{{ section.settings.as_seen_on }}</p>
+  {% endif %}
+  <div class="as-seen-on-logos">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+        <img src="{{ block.settings.image | img_url: '300x' }}" alt="{{ block.settings.image_alt | escape }}" loading="lazy">
+      </a>
+    {% endfor %}
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+        <img src="{{ block.settings.image | img_url: '300x' }}" alt="{{ block.settings.image_alt | escape }}" loading="lazy">
+      </a>
+    {% endfor %}
+  </div>
+</div>
