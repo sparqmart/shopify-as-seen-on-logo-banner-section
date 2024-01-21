@@ -1,6 +1,4 @@
-# shopify
-
-Shopify As Seen On Section
+# Shopify As Seen On Section
 
 Overview
 This repository contains a custom Shopify theme modification that enables the creation of a new section named "As Seen On." This section allows users to upload logos with associated links, such as press releases, along with ALT text. The logos are initially displayed in black and white, changing to their original color when hovered over.
