@@ -1,2 +1,2 @@
 # shopify
-Shopify Theme Coding
+Shopify - As Seen On (Logo Banner)
