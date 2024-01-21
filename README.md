@@ -30,7 +30,7 @@ Remove the "1" and save the changes again.
 This process should ensure that the logos display correctly on your website.
 
 Example
-Visit Sparq Mart sparqmart.com to see the "As Seen On" section in action.
+Visit Sparq Mart [(sparqmart.com)](https://sparqmart.com/) to see the "As Seen On" section in action.
 
 We appreciate your feedback and contributions to improving this beta version. If you encounter any issues or have suggestions, feel free to open an issue or submit a pull request.
 
